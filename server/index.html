@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{.PageTitle}}</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="w3-white">
+
+
+<div class="w3-container">
+  <!--<h1><center>MedNet</center></h1>
+  -->
+  <h1><center>MedNet</center></h1>
+  <p></p>
+  <div class="w3-bar w3-green  w3-card-4">
+    <a href="/" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Home</a>
+    <a href="/login" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Login</a>
+    <a href="/signup" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">SignUp</a>
+<!--     <div class="w3-dropdown-hover w3-hover-opacity w3-hover-indigo">
+      <button class="w3-button">Dropdown</button>
+      <div class="w3-dropdown-content w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      </div> -->
+     <a href="/patient" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Patients</a>
+     <a href="/doctors" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Doctors</a>
+     <a href="/pharma" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Pharmacy</a>
+    </div>
+  </div>
+</div>
+
+<center>
+<div class="w3-container w3-center w3-margin-top">
+	   <img class="mySlides w3-animate-fading" src="https://static1.squarespace.com/static/565e8ecde4b062a4a3080242/t/57de20965016e1d6371e2218/1474175380645/" width="1230" height="500">
+	   <img class="mySlides w3-animate-fading" src="https://i0.wp.com/fabiusmaximus.com/wp-content/uploads/2017/07/famine-in-africa.jpg?ssl=1" width="1230" height="500">
+	   <img class="mySlides w3-animate-fading" src="https://pbs.twimg.com/media/DKGg3pLV4AAkFjK.jpg" width="1230" height="500">
+	
+</div>
+</center>
+<script>
+var myIndex = 0;
+carousel();
+
+function carousel() {
+    var i;
+    var x = document.getElementsByClassName("mySlides");
+    for (i = 0; i < x.length; i++) {
+       x[i].style.display = "none";  
+    }
+    myIndex++;
+    if (myIndex > x.length) {myIndex = 1}    
+    x[myIndex-1].style.display = "block";  
+    setTimeout(carousel, 4000); // Change image every 4 seconds
+}
+</script>
+
+</body>
+</html>

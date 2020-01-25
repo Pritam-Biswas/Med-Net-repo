@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{{.PageTitle}}</title>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body class="w3-white">
+<div class="w3-container">
+  <h1><center>MedNet</center></h1>
+  <p></p>
+  <div class="w3-bar w3-green  w3-card-4">
+    <a href="/" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Home</a>
+    <a href="/login" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Login</a>
+    <a href="/signup" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">SignUp</a>
+<!--     <div class="w3-dropdown-hover w3-hover-opacity w3-hover-indigo">
+      <button class="w3-button">Dropdown</button>
+      <div class="w3-dropdown-content w3-card-4">
+        <a href="#" class="w3-bar-item w3-button">Link 1</a>
+        <a href="#" class="w3-bar-item w3-button">Link 2</a>
+        <a href="#" class="w3-bar-item w3-button">Link 3</a>
+      </div> -->
+     <a href="/patient" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Patients</a>
+     <a href="/doctors" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Doctors</a>
+     <a href="/pharma" class="w3-bar-item w3-button w3-hover-opacity w3-hover-green">Pharmacy</a>
+    </div>
+  </div>
+</div>
+
+<!-- <div class="w3-row w3-dark-grey w3-left w3-margin w3-green  w3-card-4"> -->
+  <div class="w3-row w3-dark-grey w3-left w3-margin w3-green  w3-card-4 w3-padding">
+  Patient Name: {{.UserMedData.Name}}
+  <br>
+  Patient username : {{.UserMedData.UserName}}
+  </div>
+  <br>
+  <form method="post" action="/pharmaReq">
+      <select id="mySelect" name="user" onchange="this.form.submit()" style="width:210px">
+	      <option value="" selected disabled>Choose Patient</option>
+
+{{range $1 := .Patients}}
+<option value="{{$1}}">{{$1}}</option>
+  {{end}}
+</select>
+  </form>
+
+<form method="post" action="/pharmafill">
+	<input type="text" name="user" value="{{.UserMedData.UserName}}" hidden/>
+	<button class="w3-button w3-blue w3-round" type="submit">Fill All</button>
+</form>
+        
+<!-- <div class="w3-row w3-dark-grey w3-left w3-margin w3-green  w3-card-4">
+Patient username:
+  </div>
+ -->
+  <!-- </div> -->
+  {{range .UserMedData.Prescriptions}}
+  <div class="w3-row w3-margin-top">
+  <table class="w3-table-all w3-small w3-hoverable w3-card w3-col s3">
+	  <tr>
+		  <th>Doctor Name: {{.Doctor}}</th>
+	  </tr>
+  </table>
+  <table class="w3-table-all w3-small w3-hoverable w3-card w3-col s8">
+	  <tr>
+		  <th>Med Name</th>
+		  <th>Diagnosis</th>
+		  <th>Dosage</th>
+		  <th>Duration</th>
+		  <th>Fullfilled</th>
+		  <th>Dispense</th>
+	  </tr>
+        {{range .MedOrders}}
+	<tr>
+		<td>{{.MedName}}</td>
+		<td>{{.Diagnosis}}</td>
+		<td>{{.DosePerDay}}</td>
+		<td>{{.NoOfDays}}</td>
+		<td>{{.Fulfilled}}</td>
+		<td><button  class="w3-button w3-border w3-hover-green" onclick="myFunction()">Confirm </button></td>
+	</tr>
+        {{end}}
+  </table>
+  </div>
+</div>
+{{end}}
+
+
+<!-- <div class="w3-container w3-teal">
+   <div class="w3-row">
+  <div class="w3-col s4 w3-teal w3-left w3-margin-left ">
+    Our Address<br>
+    Cisco Sytems, Bengaluru<br>
+    Karnataka -560103<br>
+    India<br>
+    <i class="fa fa-calendar w3-margin" style="font-size:24px"></i>medcorps@cisco.com
+    <br>
+    <i class="fa fa-phone-square w3-margin" style="font-size:24px"></i>112233445566
+  </div>
+  <div class="w3-col s7 w3-teal w3-center w3-margin-right">
+    <p>You can contact us at</p>
+	<form action="/action_page.php">
+  Email: <input type="text" name="fname" class="w3-margin"><br>
+  Query: <input type="text" name="lname" class="w3-margin"><br>
+  <input type="submit" value="Submit">
+	</form>
+  </div>
+</div>
+</div> -->
+</body>
+</html>
